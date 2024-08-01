@@ -56,8 +56,7 @@ class TownStore {
     if (response.status === 200) {
       console.log(this.townList.length, "response.status===200");
       this.townList;
-    }
-    else{
+    } else {
       console.log("no play");
     }
     return;

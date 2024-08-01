@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Api\\Server.Api.csproj": {}
+    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Api\\Server.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Api\\Server.Api.csproj": {
+    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Api\\Server.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Api\\Server.Api.csproj",
+        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Api\\Server.Api.csproj",
         "projectName": "Server.Api",
-        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Api\\Server.Api.csproj",
+        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Api\\Server.Api.csproj",
         "packagesPath": "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Api\\obj\\",
+        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj": {
-                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj"
+              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj": {
+                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj"
               },
-              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\Server.Service.csproj": {
-                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\Server.Service.csproj"
+              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\Server.Service.csproj": {
+                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\Server.Service.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj": {
+    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj",
+        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj",
         "projectName": "Server.Core",
-        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj",
+        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj",
         "packagesPath": "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\obj\\",
+        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -144,14 +144,14 @@
         }
       }
     },
-    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj": {
+    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj",
+        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj",
         "projectName": "Server.Data",
-        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj",
+        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj",
         "packagesPath": "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\obj\\",
+        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,8 +172,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj": {
-                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj"
+              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj"
               }
             }
           }
@@ -219,14 +219,14 @@
         }
       }
     },
-    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\Server.Service.csproj": {
+    "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\Server.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\Server.Service.csproj",
+        "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\Server.Service.csproj",
         "projectName": "Server.Service",
-        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\Server.Service.csproj",
+        "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\Server.Service.csproj",
         "packagesPath": "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Service\\obj\\",
+        "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -247,8 +247,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj": {
-                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj"
+              "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj": {
+                "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj"
               }
             }
           }

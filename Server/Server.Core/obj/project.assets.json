@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj",
+      "projectUniqueName": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj",
       "projectName": "Server.Core",
-      "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\Server.Core.csproj",
+      "projectPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\Server.Core.csproj",
       "packagesPath": "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Core\\obj\\",
+      "outputPath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

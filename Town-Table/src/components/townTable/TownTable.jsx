@@ -1,8 +1,8 @@
 import * as React from "react";
-import "./TownTable.css";
 import { useEffect } from "react";
-import TownStore from "../../stores/TownStore";
 import PropTypes from "prop-types";
+import { visuallyHidden } from "@mui/utils";
+import { Button } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -17,17 +17,14 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
-import { visuallyHidden } from "@mui/utils";
-import { Alert, Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import "./TownTable.css";
+import TownStore from "../../stores/TownStore";
 
-//------------------------functio of mui---------------------------------
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -93,7 +90,6 @@ function EnhancedTableHead(props) {
               ) : null}
             </TableSortLabel>
           </TableCell>
-          
         ))}
       </TableRow>
     </TableHead>
@@ -110,8 +106,10 @@ EnhancedTableHead.propTypes = {
 function update(name, id) {
   console.log("update town", name, id);
   TownStore.updateTown(id, name);
-};
-
+}
+function AddTwon(name) {
+  TownStore.addTown(name);
+}
 const TownTable = () => {
   useEffect(() => {
     TownStore.getTown();
@@ -126,19 +124,16 @@ const TownTable = () => {
   const [nameTown, setNameTown] = React.useState("");
   const [idTown, setIdTown] = React.useState(0);
   const [open, setOpen] = React.useState(false);
-const[showAddTown, setAddTown] = React.useState(false);
-  
+  const [showAddTown, setAddTown] = React.useState(false);
 
   const handleClose = () => {
     setOpen(false);
-    // debugger;
   };
 
   function deleteTown(townId) {
     console.log("deleteTown", townId);
     TownStore.deleteTown(townId);
   }
-  
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -163,88 +158,73 @@ const[showAddTown, setAddTown] = React.useState(false);
       ),
     [order, orderBy, page, rowsPerPage]
   );
-function  AddTwon(){
-  return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      PaperProps={{
-        component: "form",
-        onSubmit: () => {
-          // event.preventDefault();
+  function AddTwon() {
+    return (
+      <Dialog
+        className="dialog"
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          component: "form",
+          onSubmit: () => {
             handleClose();
-        },
-      }}
-    >
-      <DialogTitle>הוספת שם עיר</DialogTitle>
-      <DialogContent>
-        <TextField
-          // autoFocus
-          // required
-          margin="dense"
-          label="הכנס שם עיר "
-          type="text"
-          // fullWidth
-          variant="standard"
-          defaultValue={nameTown}
-          onMouseLeave={(n)=>(setNameTown(n.target.value))}
-        />
-      </DialogContent>
-  
-        
-        <Button>
-          שליחה
-        </Button>
-     
-    </Dialog>
-  );
-}
-function EditTwon () {
-  // console.log("editTwon", props);
-  // setNameTown(props.name);
-  // setIdTown(props.id);
+          },
+        }}
+      >
+        <DialogTitle>הוספת שם עיר</DialogTitle>
+        <DialogContent>
+          <TextField
+            margin="dense"
+            label="הכנס שם עיר "
+            type="text"
+            variant="standard"
+            defaultValue={nameTown}
+            onMouseLeave={(n) => setNameTown(n.target.value)}
+          />
+        </DialogContent>
 
-
-  return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      PaperProps={{
-        component: "form",
-        onSubmit: () => {
-          // event.preventDefault();
+        <Button>שליחה</Button>
+      </Dialog>
+    );
+  }
+  function EditTwon() {
+    return (
+      <Dialog
+        className="dialog"
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          component: "form",
+          onSubmit: () => {
             handleClose();
-        },
-      }}
-    >
-      <DialogTitle>עידכון שם עיר</DialogTitle>
-      <DialogContent>
-        <TextField
-          // autoFocus
-          // required
-          margin="dense"
-          label="הכנס שם עיר "
-          type="text"
-          // fullWidth
-          variant="standard"
-          defaultValue={nameTown}
-          onMouseLeave={(n)=>(setNameTown(n.target.value))}
-        />
-      </DialogContent>
-        <Button onClick={update(nameTown, idTown)}>
-          שליחה
-        </Button>
-     
-    </Dialog>
-  );
-};
+          },
+        }}
+      >
+        <DialogTitle>עידכון שם עיר</DialogTitle>
+        <DialogContent>
+          <TextField
+            margin="dense"
+            label="הכנס שם עיר "
+            type="text"
+            variant="standard"
+            defaultValue={nameTown}
+            onMouseLeave={(n) => setNameTown(n.target.value)}
+          />
+        </DialogContent>
+        <Button onClick={update(nameTown, idTown)}>שליחה</Button>
+      </Dialog>
+    );
+  }
   return (
     <>
-   
-
-    <Button variant="contained" className="addButton"onClick={()=>(setAddTown(true),  setOpen(true))} endIcon={<AddIcon/>}>
-  הוספה
-</Button>
+      <Button
+        variant="contained"
+        className="addButton"
+        onClick={() => (setAddTown(true), setOpen(true))}
+        endIcon={<AddIcon />}
+      >
+        הוספה
+      </Button>
       <Box id="townTable">
         <Autocomplete
           disablePortal
@@ -255,7 +235,7 @@ function EditTwon () {
         />
         <Paper sx={{ width: "100%", mb: 2 }}>
           <TableContainer>
-            <Table  aria-labelledby="tableTitle">
+            <Table aria-labelledby="tableTitle">
               <EnhancedTableHead
                 numSelected={TownStore.townList.length}
                 order={order}
@@ -263,7 +243,7 @@ function EditTwon () {
                 onRequestSort={handleRequestSort}
                 rowCount={TownStore.townList.length}
               />
-              
+
               <TableBody>
                 {visibleRows.map((row, index) => {
                   const labelId = `enhanced-table-checkbox-${index}`;
@@ -274,13 +254,13 @@ function EditTwon () {
                       role="checkbox"
                       tabIndex={-1}
                       sx={{ cursor: "pointer" }}
-                        className="row"
+                      className="row"
                     >
                       <TableCell
                         component="th"
                         scope="row"
                         padding="none"
-                      className="row"
+                        className="row"
                       >
                         {row?.name}
                       </TableCell>
@@ -327,7 +307,7 @@ function EditTwon () {
         </Paper>
       </Box>
 
-      {showEditTown &&  EditTwon()}
+      {showEditTown && EditTwon()}
       {showAddTown && AddTwon()}
     </>
   );

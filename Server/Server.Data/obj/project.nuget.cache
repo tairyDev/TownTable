@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pR/6q9geMOY/oXXKzBwzK7m/YRI10qSfJQBr+9mbY5fleqVLL3D0w9kv5nl4K53SwBYkLbl+hVQTgaJYKtFR3g==",
+  "dgSpecHash": "4l/EeAJe4aRKCUCJTDFeT1DCazcX/k1vR8sRc0/WOCG1IcVE51YrJS4zwB2/C4KDwTO5ybLloo9kdyWsEQAi9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\Server\\Server.Data\\Server.Data.csproj",
+  "projectFilePath": "C:\\Users\\זוהרה ברקוביץ\\Desktop\\תאיר\\ProjectTair\\Server\\Server.Data\\Server.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\זוהרה ברקוביץ\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
