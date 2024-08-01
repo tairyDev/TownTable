@@ -1,0 +1,12 @@
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\bin\Debug\net6.0\Server.Core.deps.json
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\bin\Debug\net6.0\Server.Core.dll
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\bin\Debug\net6.0\Server.Core.pdb
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.csproj.AssemblyReference.cache
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.AssemblyInfoInputs.cache
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.AssemblyInfo.cs
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.csproj.CoreCompileInputs.cache
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.dll
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\refint\Server.Core.dll
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\Server.Core.pdb
+C:\Users\זוהרה ברקוביץ\Desktop\תאיר\Server\Server.Core\obj\Debug\net6.0\ref\Server.Core.dll

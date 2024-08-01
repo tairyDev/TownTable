@@ -1,0 +1,17 @@
+.css-i4bv87-MuiSvgIcon-root {
+  color: black !important;
+}
+#townTable{
+  margin: auto !important;;
+    width: 70%;
+}
+body{
+    align-items: center;
+}
+.row{
+  text-align: center !important;;
+}
+.addButton{
+  background-color: beige !important;
+  color: black !important;
+}
