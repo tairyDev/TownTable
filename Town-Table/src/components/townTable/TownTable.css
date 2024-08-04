@@ -18,3 +18,6 @@ body {
 .dialog {
   direction: rtl;
 }
+.search{
+  width: 100%;
+}

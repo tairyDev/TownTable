@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { visuallyHidden } from "@mui/utils";
 import { Button } from "@mui/material";
@@ -17,7 +18,6 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
-import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -62,6 +62,7 @@ const headCells = [
 
 function EnhancedTableHead(props) {
   const { order, orderBy, onRequestSort } = props;
+
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -103,18 +104,22 @@ EnhancedTableHead.propTypes = {
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
 };
-function update(name, id) {
-  console.log("update town", name, id);
-  TownStore.updateTown(id, name);
+function update(idTown, nameTown) {
+  console.log("update town", nameTown, idTown);
+  TownStore.updateTown(idTown, nameTown);
 }
-function AddTwon(name) {
+function addTown(name) {
   TownStore.addTown(name);
 }
-const TownTable = () => {
+function deleteTown(townId) {
+  console.log("deleteTown", townId);
+  TownStore.deleteTown(townId);
+}
+const TownTable = observer(() => {
   useEffect(() => {
     TownStore.getTown();
     console.log("use effect", TownStore.townList);
-  }, []);
+  }, [TownStore.townList]);
 
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -126,19 +131,14 @@ const TownTable = () => {
   const [open, setOpen] = React.useState(false);
   const [showAddTown, setAddTown] = React.useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  function deleteTown(townId) {
-    console.log("deleteTown", townId);
-    TownStore.deleteTown(townId);
-  }
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -158,7 +158,20 @@ const TownTable = () => {
       ),
     [order, orderBy, page, rowsPerPage]
   );
+
+  const [copyList, setCopyList] = useState(visibleRows);
+
+  const requestSearch = (searched) => {
+    setCopyList(
+      TownStore.townList.filter((item) => item.name.includes(searched))
+    );
+  };
   function AddTwon() {
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      addTown(nameTown);
+      handleClose();
+    };
     return (
       <Dialog
         className="dialog"
@@ -179,15 +192,21 @@ const TownTable = () => {
             type="text"
             variant="standard"
             defaultValue={nameTown}
-            onMouseLeave={(n) => setNameTown(n.target.value)}
+            onChange={(n) => setNameTown(n.target.value)}
           />
         </DialogContent>
 
-        <Button>שליחה</Button>
+        <Button onClick={handleSubmit}>שליחה</Button>
       </Dialog>
     );
   }
   function EditTwon() {
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      update(idTown, nameTown);
+      handleClose();
+    };
+
     return (
       <Dialog
         className="dialog"
@@ -208,10 +227,10 @@ const TownTable = () => {
             type="text"
             variant="standard"
             defaultValue={nameTown}
-            onMouseLeave={(n) => setNameTown(n.target.value)}
+            onChange={(n) => setNameTown(n.target.value)}
           />
         </DialogContent>
-        <Button onClick={update(nameTown, idTown)}>שליחה</Button>
+        <Button onClick={handleSubmit}>שליחה</Button>
       </Dialog>
     );
   }
@@ -226,13 +245,14 @@ const TownTable = () => {
         הוספה
       </Button>
       <Box id="townTable">
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={TownStore.townList.map((town) => town.name)}
-          sx={{ width: "100%" }}
-          renderInput={(params) => <TextField {...params} label="חיפוש" />}
+        <TextField
+          className="search"
+          variant="outlined"
+          placeholder="search..."
+          type="search"
+          onInput={(e) => requestSearch(e.target.value)}
         />
+
         <Paper sx={{ width: "100%", mb: 2 }}>
           <TableContainer>
             <Table aria-labelledby="tableTitle">
@@ -245,53 +265,55 @@ const TownTable = () => {
               />
 
               <TableBody>
-                {visibleRows.map((row, index) => {
-                  const labelId = `enhanced-table-checkbox-${index}`;
-
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      sx={{ cursor: "pointer" }}
-                      className="row"
-                    >
-                      <TableCell
-                        component="th"
-                        scope="row"
-                        padding="none"
+                {/* {visibleRows.map((row, index) => {
+                  const labelId = `enhanced-table-checkbox-${index}`; */}
+                {(copyList.length > 0 ? copyList : visibleRows).map(
+                  (row, index) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        sx={{ cursor: "pointer" }}
                         className="row"
                       >
-                        {row?.name}
-                      </TableCell>
-                      <Box>
                         <TableCell
-                          align="right"
-                          width={"100%"}
-                          className="buttonIcon"
+                          component="th"
+                          scope="row"
+                          padding="none"
+                          className="row"
                         >
-                          {" "}
-                          <Button
-                            onClick={() => (
-                              setNameTown(row.name),
-                              setIdTown(row.id),
-                              setOpen(true),
-                              setShowEditTown(true)
-                            )}
+                          {row?.name}
+                        </TableCell>
+                        <Box>
+                          <TableCell
+                            align="right"
+                            width={"100%"}
+                            className="buttonIcon"
                           >
-                            <EditIcon />
-                          </Button>{" "}
-                        </TableCell>
-                        <TableCell align="right" className="buttonIcon">
-                          <Button onClick={() => deleteTown(row.id)}>
                             {" "}
-                            <DeleteIcon />{" "}
-                          </Button>
-                        </TableCell>
-                      </Box>
-                    </TableRow>
-                  );
-                })}
+                            <Button
+                              onClick={() => (
+                                setNameTown(row.name),
+                                setIdTown(row.id),
+                                setOpen(true),
+                                setShowEditTown(true)
+                              )}
+                            >
+                              <EditIcon />
+                            </Button>{" "}
+                          </TableCell>
+                          <TableCell align="right" className="buttonIcon">
+                            <Button onClick={() => deleteTown(row.id)}>
+                              {" "}
+                              <DeleteIcon />{" "}
+                            </Button>
+                          </TableCell>
+                        </Box>
+                      </TableRow>
+                    );
+                  }
+                )}
               </TableBody>
             </Table>
           </TableContainer>
@@ -311,5 +333,5 @@ const TownTable = () => {
       {showAddTown && AddTwon()}
     </>
   );
-};
+});
 export default TownTable;

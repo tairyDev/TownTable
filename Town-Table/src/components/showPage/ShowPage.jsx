@@ -6,7 +6,7 @@ function ShowPage() {
   return (
     <>
       <div className="box">
-        <Header className="headerTable"></Header>
+      <Header className="headerTable"></Header>
         <TownTable className="showPage" />
       </div>
     </>

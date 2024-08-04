@@ -1,4 +1,5 @@
 import { observable, makeObservable, action, makeAutoObservable } from "mobx";
+import Swal from 'sweetalert2'
 class TownStore {
   townList = [];
   constructor() {
@@ -22,19 +23,32 @@ class TownStore {
     } else {
       return null;
     }
-  };
-  addTown = async (newTown) => {
+  }
+  addTown = async (name) => {
     const response = await fetch("https://localhost:7130/api/Town", {
       method: "POST",
-      body: JSON.stringify(newTown),
+      body: JSON.stringify({name}),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
-      this.townList = [...this.townList, newTown];
+      this.townList = [...this.townList, name];
       console.log(this.townList.length, "response.status===200");
+      Swal.fire({
+        text: "הישוב נוסף בהצלחה!",
+        icon: "success"
+      })
     }
-    return;
-  };
+    else{
+      Swal.fire({
+        title: " שגיאה",
+        text: "לא ניתן להוסיף שם עיר פעמיים",
+        icon: "error",
+        timer: 3000
+      })
+    }
+    window.location.reload()
+    return
+  }
   deleteTown = async (id) => {
     console.log(id, "deleteTown");
     const response = await fetch(`https://localhost:7130/api/Town/${id}`, {
@@ -44,22 +58,40 @@ class TownStore {
     if (response.status === 204) {
       console.log(this.townList.length, "response.status===204");
       this.townList;
+      Swal.fire({
+        text: "הישוב נמחק בהצלחה!",
+        icon: "success",
+        timer:3000
+      })
     }
     return;
-  };
-  updateTown = async (id, updateTown) => {
-    const response = await fetch(`https://localhost:7130/api/Town/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(updateTown),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (response.status === 200) {
-      console.log(this.townList.length, "response.status===200");
-      this.townList;
-    } else {
-      console.log("no play");
-    }
-    return;
-  };
+  }
+  updateTown = async (id,name) => {
+      const response =await fetch(`https://localhost:7130/api/Town/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({id,name}),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.ok) {
+        console.log(this.townList.length, "response.ok");
+        this.townList;
+        Swal.fire({
+          text: "ישוב התעדכן בהצלחה!",
+          icon: "success"
+        })
+      } else {
+        Swal.fire({
+          title: " שגיאה",
+          text: "לא ניתן להכניס את אותו שם פעמיים",
+          icon: "error"
+        })
+        console.error(
+          `Update failed with status ${response.status}:`,
+          errorData
+        );
+      }
+   
+    return
+  }
 }
 export default new TownStore();
